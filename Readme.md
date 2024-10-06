@@ -1,15 +1,15 @@
 ## Node.js User Management API
 
-### Description
+## Description
 This Node.js app provides basic CRUD (Create, Read, Update, Delete) operations for user management. It uses MongoDB via Mongoose for database interaction and follows the MVC (Model-View-Controller) design pattern to organize the code in a structured and maintainable way.
 
-### Features
+## Features
 - **Sign Up**: Create a new user with a name, email, and hashed password.
 - **Get User**: Retrieve user details by email.
 - **Update User**: Update user information.
 - **Delete User**: Remove a user by email.
 
-### Technologies Used
+## Technologies Used
 - **Node.js**: JavaScript runtime environment
 - **Express.js**: Web framework for Node.js
 - **MongoDB**: NoSQL database
@@ -19,13 +19,13 @@ This Node.js app provides basic CRUD (Create, Read, Update, Delete) operations f
 - **Postman**: For testing APIs
 - **Git**: Version control
 
-### Prerequisites
+## Prerequisites
 Before setting up the project, ensure you have the following installed:
 - **Node.js** - Version 12 or later
 - **MongoDB** - Local or cloud instance (e.g., MongoDB Atlas)
 - **Postman** or any API testing tool
 
-### Setup Instructions
+##  Setup Instructions
 
 1. **Download the Project**
    - Download the zip file of the project from GitHub.
@@ -61,85 +61,60 @@ Start the Node.js server:
 
 The app should now be running at http://localhost:3001.
 
-### API Endpoints
+## Testing the API with Postman
+### 1. Sign Up a New User
+   - **URL**: `/user/signup`
+   - **Method**: `POST`
 
-1. ***Sign Up a New User***
+   **Steps in Postman**:
+   1. Open Postman.
+   2. Select the `POST` method and enter the URL: `http://localhost:3001/user/signup`.
+   3. Go to the `Body` tab.
+   4. Select `x-www-form-urlencoded`.
+   5. Add the following fields:
+      - `name`: John Doe
+      - `email`: johndoe@example.com
+      - `password`: yourpassword
+   6. Click `Send`.
 
-    1) URL: /user/signup
-    2) Method: POST
-    3) Description: Creates a new user with the provided name, email, and password.
-    4) Request Body:
-        {
-        "name": "John Doe",
-        "email": "johndoe@example.com",
-        "password": "yourpassword"
-        }
-    5) Response:
-        {
-        "message": "Successfully created the User",
-        "data": {
-            "_id": "user-id",
-            "name": "John Doe",
-            "email": "johndoe@example.com"
-        },
-        "success": true
-        }
+### 2. Get User by Email
+   - **URL**: `/user/getUser`
+   - **Method**: `GET`
 
-2. ***Get User by Email***
+   **Steps in Postman**:
+   1. Select the `GET` method and enter the URL: `http://localhost:3001/user/getUser`.
+   2. Go to the `Body` tab.
+   3. Select `x-www-form-urlencoded`.
+   4. Add the field:
+      - `email`: johndoe@example.com
+   5. Click `Send`.
 
-    1) URL: /user/getUser
-    2) Method: GET
-    3) Description: Retrieves user details using email.
-    4) Request Body:
-        {
-        "email": "johndoe@example.com"
-        }
-    5) Response:
-        {
-        "message": "Successfully Signed IN",
-        "data": {
-            "_id": "user-id",
-            "name": "John Doe",
-            "email": "johndoe@example.com"
-        },
-        "success": true
-        }
+### 3. Update User Information
+   - **URL**: `/user/update`
+   - **Method**: `PUT`
 
-3) ***Update User Information***
+   **Steps in Postman**:
+   1. Select the `PUT` method and enter the URL: `http://localhost:3001/user/update`.
+   2. Go to the `Body` tab.
+   3. Select `x-www-form-urlencoded`.
+   4. Add the fields:
+      - `email`: johndoe@example.com
+      - `name`: John Updated Doe
+   5. Click `Send`.
 
-    1) URL: /user/update
-    2) Method: PUT
-    3) Description: Updates an existing user's name or email.
-    4) Request Body:
-        {
-        "email": "johndoe@example.com",
-        "name": "John Updated Doe"
-        }
-    5) Response:
-        {
-        "message": "User Updation Successful",
-        "data": {
-            "_id": "user-id",
-            "name": "John Updated Doe",
-            "email": "johndoe@example.com"
-        },
-        "success": true
-        }
+### 4. Delete a User
+   - **URL**: `/user/delete`
+   - **Method**: `DELETE`
 
-4) ***Delete a User***
+   **Steps in Postman**:
+   1. Select the `DELETE` method and enter the URL: `http://localhost:3001/user/delete`.
+   2. Go to the `Body` tab.
+   3. Select `x-www-form-urlencoded`.
+   4. Add the field:
+      - `email`: johndoe@example.com
+   5. Click `Send`.
 
-    1) URL: /user/delete
-    2) Method: DELETE
-    3) Description: Deletes a user by email.
-    4) Request Body:
-        {
-        "email": "johndoe@example.com"
-        }
-    5) Response:
-        {
-        "message": "User Deletion Successful",
-        "success": true
-        }
+---
 
 ## Project Structure
 
