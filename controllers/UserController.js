@@ -3,6 +3,7 @@ const userService =new UserService();
 
 const SignUp = async(req,res)=>{
     try{
+        console.log(req.body);
         const response  = await userService.signup(req.body);
         return res.status(201).json({
             message: 'Successfully created the User',
