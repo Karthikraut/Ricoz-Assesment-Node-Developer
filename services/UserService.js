@@ -12,7 +12,8 @@ class UserService{
             const salt_rounds = parseInt(process.env.SALT_ROUNDS);
             const salt = await bcrypt.genSaltSync(salt_rounds);
             const hash =await bcrypt.hashSync(data.password, salt);
-            const newUser = new this.userRepository.createUser({name:data.name, email:data.email, password:hash});
+            const newUser = await this.userRepository.createUser({name:data.name, email:data.email, password:hash});
+            console.log("New USER FORMED SERVIE")
             return newUser
         } catch(error){
             console.log('Error:- ',error);

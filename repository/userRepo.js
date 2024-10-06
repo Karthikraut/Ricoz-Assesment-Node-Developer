@@ -27,9 +27,9 @@ class UserRepository {
         }
     }
 
-    async deleteUser(userId) {
+    async deleteUser(data) {
         try {
-            const delUser = await User.findByIdAndDelete(userId);
+            const delUser = await User.deleteOne({email: data.email});
             return delUser;
         } catch (error) {
             console.log("Error at User Repository Layer: ", error);
