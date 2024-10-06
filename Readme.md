@@ -32,28 +32,32 @@ Before setting up the project, ensure you have the following installed:
    - Extract the zip file and navigate to the project directory.
 
 2. **Install Dependencies**
-   npm install
 
+```bash
+   npm install
+```
 
 3. **Configure Environment Variables** 
     - Create a .env file in the root directory of the project and add the following environment variables:
-    (I have already setupped .env file already in this project and I will also upload it on github for minimized your efforts)
+    (I have already setupped .env file already in this project and I will also upload it on github for minimizing your efforts)
 
     1) PORT=3001
     2) MONGO_DB_URL=mongodb://localhost:27017/yourDatabaseName
     3) SALT_ROUNDS=10
 
-    PORT: Port where the server will run.
-    MONGO_URI: MongoDB connection string.
-    SALT_ROUNDS: Number of rounds for bcrypt password hashing.
-    Start MongoDB (If Using Locally) Ensure MongoDB is running on your machine:
+    - **PORT:** Port where the server will run.
+    - **MONGO_URI:** MongoDB connection string.
+    - **SALT_ROUNDS:** Number of rounds for bcrypt password hashing.
 
 
 
 4. **Run the Application Start the Node.js server:**
+    
+Start the Node.js server:
 
+    ```bash
     npm start
-
+    ```
 
 The app should now be running at http://localhost:3001.
 
@@ -139,8 +143,9 @@ The app should now be running at http://localhost:3001.
 
 ## Project Structure
 
+```bash
 ├── connection
-│   └── index.js               # Establishes Connection between MongoDb (database) and Project
+│   └── index.js               # Establishes Connection between MongoDB (database) and Project
 ├── Repository
 │   └── userRepo               # Handles database interactions for user-related operations
 ├── controllers
@@ -151,6 +156,6 @@ The app should now be running at http://localhost:3001.
 │   └── index.js               # API routes for user-related requests
 ├── services
 │   └── UserService.js         # Handles business logic for user-related operations
-├── index.js                     # Main entry point for the application
+├── index.js                   # Main entry point for the application
 ├── .env                       # Environment variables (to be created manually)
 ├── package.json               # Project dependencies and scripts
