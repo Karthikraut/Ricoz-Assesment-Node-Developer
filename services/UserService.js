@@ -57,6 +57,19 @@ class UserService{
         }
     }
 
+    async updateUser(data){
+        try{
+            const salt_rounds = parseInt(process.env.SALT_ROUNDS);
+            const salt = await bcrypt.genSaltSync(salt_rounds);
+            const hash =await bcrypt.hashSync(data.password, salt);
+            const user =await this.userRepository.updatUser({name:data.name, email:data.email, password: hash});
+            console.log('Service layer user: ',user);
+            return user;
+        } catch(error){
+            console.log("Error at service layer ", error);
+        }
+    }
+
     async comparePassword(plainPassword,hash){
         try{
             const result = await bcrypt.compare(plainPassword, hash);

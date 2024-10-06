@@ -36,6 +36,20 @@ class UserRepository {
             throw error;
         }
     }
+
+    async updatUser(data){
+        try{
+            const user =await User.findOneAndUpdate({email: data.email},{
+                name: data.name,
+                password: data.password
+            },{new: true})
+            console.log("Updated USER: ",user)
+            return user;
+        } catch(error){
+            console.log("Error:- ",error);
+        }
+    }
+
 }
 
 module.exports = UserRepository;

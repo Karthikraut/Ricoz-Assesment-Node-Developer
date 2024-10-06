@@ -22,7 +22,7 @@ const SignUp = async(req,res)=>{
     }
 }
 
-const SignIn = async(req,res)=>{
+const GetUser = async(req,res)=>{
     try{
         const response = await userService.signIn(req.body);
         return res.status(201).json({
@@ -44,7 +44,7 @@ const SignIn = async(req,res)=>{
 
 const DeleteUser = async(req,res)=>{
     try{
-        const user = userService.deleteUser(req.body);
+        const user = await userService.deleteUser(req.body);
         return res.status(500).json({
             message: "User Deletion Sucessfull",
             success: true,
@@ -62,4 +62,24 @@ const DeleteUser = async(req,res)=>{
     }
 }
 
-module.exports =  {SignIn,SignUp,DeleteUser}
+const UpdateUser = async(req,res)=>{
+    try{
+        const user =await userService.updateUser(req.body);
+        return res.status(201).json({
+            message: "User Updation Sucessfull",
+            success: true,
+            data: user,
+            err: [],
+        })
+    } catch(error){
+        console.log("Error at controller: ", error);
+        return res.status(500).json({
+            message: "Error in Deleting User",
+            success: false,
+            data: [],
+            err: error,
+        })
+    }
+}
+
+module.exports =  {GetUser,SignUp,DeleteUser,UpdateUser}
