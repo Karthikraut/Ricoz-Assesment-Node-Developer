@@ -55,9 +55,9 @@ Before setting up the project, ensure you have the following installed:
     
 Start the Node.js server:
 
-    ```bash
+```bash
     npm start
-    ```
+```
 
 The app should now be running at http://localhost:3001.
 
